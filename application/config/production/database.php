@@ -58,9 +58,6 @@ $db['default']['username'] = 'rutas';
 $db['default']['password'] = '767RxvAu865RznKc';
 $db['default']['database'] = 'rutas';
 
-
-
-
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
