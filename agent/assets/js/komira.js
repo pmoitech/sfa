@@ -70,7 +70,7 @@ window.onpopstate = function(event) {
       if (hashName !== '') {
         var hash = window.location.hash;
         if ((NotUpdateArray.length > 0) && (hash === '') && (page_state==='dashboard')) {
-          alert('Existen cambios en los estados de los alumnos que no han sido actualizados en el servidor, por favor espere hasta que se actualicen automáticamente cuando se restablezca la señal de internet.');
+          alert('Existen cambios en los estados de los cliente que no han sido actualizados en el servidor, por favor espere hasta que se actualicen automáticamente cuando se restablezca la señal de internet.');
           history.go(1); 
         }
       }
@@ -120,7 +120,7 @@ $(document).ready(function() {
     $('#btn-close').click(function(e){
         e.preventDefault();
         if ((NotUpdateArray.length > 0) && (page_state==='dashboard')) {
-            alert('Existen cambios en los estados de los alumnos que no han sido actualizados en el servidor, por favor espere hasta que se actualicen automáticamente cuando se restablezca la señal de internet.');
+            alert('Existen cambios en los estados de los cliente que no han sido actualizados en el servidor, por favor espere hasta que se actualicen automáticamente cuando se restablezca la señal de internet.');
         }else{
             clearInterval(busLocationDemonId);
             clearInterval(localizationDemonId);
@@ -548,25 +548,25 @@ function PaintWayStop(data){
     if (data.estado==2)
         html += '  checked="checked" ' ;
     html +=     ' onchange="updateStateStudent('+data.idalumno+',2)" >';
-    html += '       <label for="ckbox-2-'+data.idalumno+'">En camino al colegio</label>';
+    html += '       <label for="ckbox-2-'+data.idalumno+'">Visita</label>';
     
     html += '       <input name="ckbox-3-'+data.idalumno+'" id="ckbox-3-'+data.idalumno+'" type="checkbox" ';
     if (data.estado==3)
         html += '  checked="checked" ' ;
     html +=     ' onchange="updateStateStudent('+data.idalumno+',3)" >';
-    html += '       <label for="ckbox-3-'+data.idalumno+'">En el colegio</label>';
+    html += '       <label for="ckbox-3-'+data.idalumno+'">Presentación producto</label>';
     
     html += '       <input name="ckbox-4-'+data.idalumno+'" id="ckbox-4-'+data.idalumno+'" type="checkbox" ';
     if (data.estado==4)
         html += '  checked="checked" ' ;
     html +=     ' onchange="updateStateStudent('+data.idalumno+',4)" >';
-    html += '       <label for="ckbox-4-'+data.idalumno+'">De regreso a casa</label>';
+    html += '       <label for="ckbox-4-'+data.idalumno+'">Cotización</label>';
     
     html += '       <input name="ckbox-1-'+data.idalumno+'" id="ckbox-1-'+data.idalumno+'" type="checkbox" ';
     if (data.estado==1)
         html += '  checked="checked" ' ;
     html +=     ' onchange="updateStateStudent('+data.idalumno+',1)" >';
-    html += '       <label for="ckbox-1-'+data.idalumno+'">Entregado en casa</label>';
+    html += '       <label for="ckbox-1-'+data.idalumno+'">Venta</label>';
     
     html += '       <input name="ckbox-5-'+data.idalumno+'" id="ckbox-5-'+data.idalumno+'" type="checkbox" ';
     if (data.estado==5)
