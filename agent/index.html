@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Buskoo Rutas</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+<link rel="stylesheet" href="assets/css/jquery.mobile-1.3.2.min.css" />
+<link rel="stylesheet" href="assets/css/app.css" /> 
+<script src="assets/js/jquery-1.10.2.min.js"></script>
+<script src="assets/js/jquery.mobile-1.3.2.min.js"></script>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script> 
+<script src="assets/js/komira.js"></script>
+
+
+</head>
+<body>
+<div data-role="popup" id="popupBasic"></div>
+
+<!-- Login -->
+<div data-role="page" id="login-page">
+    <div data-theme="b" data-role="header">
+        <h3>
+            <label id="app_name" name ="app_name"></label>
+        </h3>
+    </div>
+    <div data-role="content">
+    
+        <div style=" text-align:center">
+           <img style="width: 96px; height: 96px" src="assets/images/logo.png">
+        </div>
+        
+        <form id="login-form" action="" method="POST">
+            <div data-role="fieldcontain">
+                <label for="username">
+                    Código
+                </label>
+                <input name="username" id="username" placeholder="" value="" type="text">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="password">
+                    Clave
+                </label>
+                <input name="password" id="password" placeholder="" value="" type="password">
+            </div>
+            <a href="#dashboard" data-role="button" id="show-dashboard" style="display: none;">Show page "two"</a>
+            <input type="button" data-theme="b" data-icon="arrow-r" data-iconpos="right"
+            value="Ingresar" id="do-login">
+        </form>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+			<label id="copyright" name ="copyright"></label>
+        </h3>
+    </div>
+</div>
+<!-- EndLogin -->
+
+
+<!-- Home -->
+<div data-role="page" id="dashboard">
+    <div data-theme="b" data-role="header">
+         <table border=0 width="100%"><tbody>
+        <tr>
+            <td align="center" width="20%">
+               <img id="agent-photo" style="width: 50px; height: 50px" src="" >
+            </td>
+            <td align="left" width="60%">
+                <p id="agent-name"></p>
+            </td>
+            <td  align="right" width="20%">
+                <a href="#" data-role="button" data-mini="true" data-inline="true" data-rel="back" id="btn-close">Salir</a>
+                <a href="#login-page" data-role="button" id="show-login" style="display: none;">Show page "login"</a>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+    
+ 	<div data-role=="nav"> 
+        <div data-role="fieldcontain">
+         <input name="current-position" id="current-position" placeholder="" value="" type="text" readonly> 
+ 
+ 		<table border=0 width="100%"><tbody>
+        <tr>
+            <td align="center" width="20%">
+                <select name="select-turno" id="select-turno" data-role="slider" onchange="getWayStop()">
+                        <option value="M">Mañana</option>
+                        <option value="T">Tarde</option>
+                </select>
+<!-- 
+         		<input type="button" data-theme="b" data-icon="refresh" data-iconpos="right" value="Refrescar" id="btn-refresh">
+ -->
+            </td>
+            <td align="left" width="60%">
+               
+            </td>
+            <td  align="right" width="20%">
+                <a data-role="button" data-theme="a" href="#" data-rel="dialog" data-transition="pop" id="btn-maps-modal">Ver mapa</a>
+            </td>
+        </tr>
+        </tbody></table>
+        </div>
+    </div>
+
+    <div data-role="article">
+
+		<form>
+			<div data-role="content" id="data-role-student">
+				<ul id="student_stop" data-role="listview" data-autodividers="true"></ul>
+			</div>
+		</form>
+    </div>
+
+   
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>
+           <label id="copyright2" name ="copyright2"></label>
+        </h3>
+    </div>
+</div>
+<!-- Home -->
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="maps-modal" data-close-btn="none">
+    
+        <div data-role="header" data-theme="b">
+            <a href="#" data-role="button" data-mini="true" data-inline="true" data-rel="back" id="btn-map-back">Regresar</a>
+            <h1>Mapa del servicio</h1>
+        </div><!-- /header -->
+        <div data-role="content" id="map_content" data-theme="a">
+            <div id="map_content">
+                <div id="map_canvas"></div>
+            </div>
+        </div>
+   
+</div><!-- /page popup -->
+
+<!-- Detalle parada: #popup -->
+<div data-role="page" id="det-parada-modal" data-close-btn="none">
+    
+        <div data-role="header" data-theme="b">
+           <a href="#" data-role="button" data-mini="true" data-inline="true" data-rel="back" id="btn-stop-back">Regresar</a>
+           <h1>Punto de parada</h1> 
+        </div><!-- /header -->
+        <div data-role="content" id="idcontent" data-theme="b">
+			<img id="foto1" alt="" style="width: 50px; height: 50px" src="" >
+    		<img id="foto2" alt="" style="width: 50px; height: 50px" src="" >
+            <label for="nombre">Alumno:</label>
+            <input name="nombre" id="nombre" placeholder="" value="" type="text" readonly="true">
+            <label for="direccion">Dirección:</label>
+            <input name="direccion" id="direccion" placeholder="" value="" type="text" readonly="true">
+            <label for="descripcion">Descripción:</label>
+            <input name="descripcion" id="descripcion" placeholder="" value="" type="text" readonly="true">
+            <label for="telefono">Teléfono:</label>
+            <input name="telefono" id="telefono" placeholder="" value="" type="text" readonly="true">
+            
+        </div>
+        
+</div><!-- /page popup -->
+
+
+</body>
+</html>
