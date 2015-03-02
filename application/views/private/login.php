@@ -75,7 +75,7 @@
 			</form>  
 			<div class="centre"> 
 			Descarga aquí:
-				<a href="<?=base_url()?>/assets/download/BuskooWorkForce_Agente.apk"><img src="<?=base_url()?>assets/images/android_bus.png" width="60" height="60" title="Aplicación para trabajadores" /> </a>
+				<a href="<?=base_url()?>/assets/download/workforce-solutions-agent.apk"><img src="<?=base_url()?>assets/images/android_bus.png" width="60" height="60" title="Aplicación para trabajadores" /> </a>
 			</div>
 
 		</div>
