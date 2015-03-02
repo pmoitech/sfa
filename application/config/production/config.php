@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'qazxsw21';
+$config['encryption_key'] = 'EFfGD@A2';
 
 /*
 |--------------------------------------------------------------------------
@@ -245,7 +245,7 @@ $config['encryption_key'] = 'qazxsw21';
 |
 */
 $config['sess_cookie_name']		= 'cisession';
-$config['sess_expiration']		= 7200;
+$config['sess_expiration']		= 86400; //24 horas
 $config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= FALSE;
 $config['sess_use_database']	= TRUE;
@@ -356,6 +356,7 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
+
 
  //Custom config
  
