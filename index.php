@@ -18,7 +18,7 @@
  *
  */
  
-	define('ENVIRONMENT', 'development');
+	//define('ENVIRONMENT', 'development');
 	//define('ENVIRONMENT', 'testing');
 	//define('ENVIRONMENT', 'production');
 /*
