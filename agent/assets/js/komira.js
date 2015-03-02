@@ -105,11 +105,19 @@ $(document).ready(function() {
         $.mobile.changePage('#maps-modal', { transition: "pop", role: "dialog", reverse: false } );
     });
 
+   $('#btn-price-modal').click(function(e){
+        e.preventDefault();
+      
+        $.mobile.changePage('#price-modal', { transition: "pop", role: "dialog", reverse: false } );
+    });
+
    $('#btn-stop-back').click(function(e){
         e.preventDefault();
         getStudentStop();
         $("#det-parada-modal").dialog('close');
     });
+
+    
 
     $('#btn-map-back').click(function (e){
         clearInterval(busLocationDemonId);
