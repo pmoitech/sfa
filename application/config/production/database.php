@@ -49,14 +49,18 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'workforce';
+
+/*$db['default']['username'] = 'workforce';
 $db['default']['password'] = 'Jqn74j7E3aAJ6ndq';
 $db['default']['database'] = 'workforce';
-/*
+*/
 $db['default']['username'] = 'rutas';
 $db['default']['password'] = '767RxvAu865RznKc';
 $db['default']['database'] = 'rutas';
-*/
+
+
+
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
