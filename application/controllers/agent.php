@@ -234,6 +234,7 @@ function verify_service_status(){
 		$estado 	= $this->input->get_post('state');
 		$novedad 	= $this->input->get_post('idnovedad');
 		$desnovedad = $this->input->get_post('desnovedad');
+		$observation= $this->input->get_post('observation');
 		$latitud 	= $this->input->get_post('latitud');
 		$longitud 	= $this->input->get_post('longitud');
 
@@ -243,15 +244,17 @@ function verify_service_status(){
 		$des_est = '';
 		switch ($estado) {
 		    case '1':
-		        $des_est = 'Entregado en casa';break;
+		        $des_est = 'Visita';break;
 		    case '2':
-		        $des_est = 'En camino al colegio';break;
+		        $des_est = 'Sugerido de productos';break;
 		    case '3':
-		        $des_est = 'En el colegio';break;
+		        $des_est = 'Pedido grabado';break;
 		    case '4':
-		        $des_est = 'De regreso a casa';break;
+		        $des_est = 'Percha sin novedad';break;
 		    case '5':
-		        $des_est = 'Ha ocurrido una novedad: '.$desnovedad;break;
+		        $des_est = 'Novedad: '.$desnovedad;break;
+		    case '6':
+		        $des_est = 'Observacion: '.$observation;break;
 		}
 
 		$datos['idalumno'] 		= $id;

@@ -562,19 +562,19 @@ function PaintWayStop(data){
     if (data.estado==3)
         html += '  checked="checked" ' ;
     html +=     ' onchange="updateStateStudent('+data.idalumno+',3)" >';
-    html += '       <label for="ckbox-3-'+data.idalumno+'">Presentación producto</label>';
+    html += '       <label for="ckbox-3-'+data.idalumno+'">Sugerido de productos</label>';
     
     html += '       <input name="ckbox-4-'+data.idalumno+'" id="ckbox-4-'+data.idalumno+'" type="checkbox" ';
     if (data.estado==4)
         html += '  checked="checked" ' ;
     html +=     ' onchange="updateStateStudent('+data.idalumno+',4)" >';
-    html += '       <label for="ckbox-4-'+data.idalumno+'">Cotización</label>';
+    html += '       <label for="ckbox-4-'+data.idalumno+'">Pedido grabado</label>';
     
     html += '       <input name="ckbox-1-'+data.idalumno+'" id="ckbox-1-'+data.idalumno+'" type="checkbox" ';
     if (data.estado==1)
         html += '  checked="checked" ' ;
     html +=     ' onchange="updateStateStudent('+data.idalumno+',1)" >';
-    html += '       <label for="ckbox-1-'+data.idalumno+'">Venta</label>';
+    html += '       <label for="ckbox-1-'+data.idalumno+'">Percha sin novedad</label>';
     
     html += '       <input name="ckbox-5-'+data.idalumno+'" id="ckbox-5-'+data.idalumno+'" type="checkbox" ';
     if (data.estado==5)
@@ -585,6 +585,11 @@ function PaintWayStop(data){
     else
         html += '       <label for="ckbox-5-'+data.idalumno+'">Novedad:'+selectNovedades(data.idalumno,-1)+'</label>';
     html += '   </div>';
+   
+    html += '   <label for="textarea-'+data.idalumno+'" >Observaciones:</label> '
+    html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea">'+getObservation(data.idalumno)+'</textarea>';
+    //html += '   <a href="#" onclick="updateStateStudent('+data.idalumno+',6)" id="btn-save-'+data.idalumno+'"  name="btn-save-'+data.idalumno+'" align="left" data-role="button"  data-theme="a" data-inline="true">Grabar</a>';
+
     html += '</fieldset>';
     
     return html;
@@ -625,6 +630,14 @@ function selectNovedades(idalumno, idnovedad){
     return html;   
 }
 
+function getObservation(id){
+    var html = '';
+    //traer observacion del cliente.
+    return html;   
+}
+
+
+
 function updateStateStudent(idstudent,idstate){
 
     if ($('#ckbox-'+idstate+'-'+idstudent).prop("checked")||(idstate=='5')){
@@ -636,6 +649,12 @@ function updateStateStudent(idstudent,idstate){
             desnovedad  = '';
         }
         
+        if(idstate=='6'){
+            observation = $('#textarea-'+idstudent).text();  
+        }else{
+           observation = '';
+        }
+
         localizame();
 
         var alumnodata = {
@@ -643,6 +662,7 @@ function updateStateStudent(idstudent,idstate){
                 state       : idstate,
                 idnovedad   : idnovedad,
                 desnovedad  : desnovedad,
+                observation : observation,
                 latitud     : lat,
                 longitud    : lng,
                 insert      : 0,
