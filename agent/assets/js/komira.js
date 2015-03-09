@@ -587,7 +587,8 @@ function PaintWayStop(data){
     html += '   </div>';
    
     html += '   <label for="textarea-'+data.idalumno+'" >Observaciones:</label> '
-    html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea">'+getObservation(data.idalumno)+'</textarea>';
+    //html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea">'+getObservation(data.idalumno)+'</textarea>';
+    html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea"></textarea>';
     //html += '   <a href="#" onclick="updateStateStudent('+data.idalumno+',6)" id="btn-save-'+data.idalumno+'"  name="btn-save-'+data.idalumno+'" align="left" data-role="button"  data-theme="a" data-inline="true">Grabar</a>';
 
     html += '</fieldset>';
