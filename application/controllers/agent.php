@@ -229,7 +229,7 @@ function verify_service_status(){
 
 	
 	function update_state_student(){
-		
+		$idparada	= $this->input->get_post('idparada');
 		$id 		= $this->input->get_post('student');
 		$estado 	= $this->input->get_post('state');
 		$novedad 	= $this->input->get_post('idnovedad');
@@ -253,8 +253,12 @@ function verify_service_status(){
 		        $des_est = 'Percha sin novedad';break;
 		    case '5':
 		        $des_est = 'Novedad: '.$desnovedad;break;
-		    case '6':
-		        $des_est = 'Observacion: '.$observation;break;
+		    case '6':{
+		        $des_est = 'Observacion: '.$observation;
+		        $this->load->model('paradas');
+		        $this->paradas->update($idparada, array('observacion' => $observation));
+		        break;
+		     }
 		}
 
 		$datos['idalumno'] 		= $id;
@@ -269,6 +273,7 @@ function verify_service_status(){
 		$datos['descripcion']	= $des_est;
 		$datos['latitud'] 		= $latitud;
 		$datos['longitud'] 		= $longitud;
+		//$datos['observacion'] 	= $observation;
 
 		$idseguimiento 			= $this->seguimiento->create($datos);
 				

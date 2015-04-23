@@ -587,9 +587,9 @@ function PaintWayStop(data){
     html += '   </div>';
    
     html += '   <label for="textarea-'+data.idalumno+'" >Observaciones:</label> '
-    //html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea">'+getObservation(data.idalumno)+'</textarea>';
-    html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea"></textarea>';
-    //html += '   <a href="#" onclick="updateStateStudent('+data.idalumno+',6)" id="btn-save-'+data.idalumno+'"  name="btn-save-'+data.idalumno+'" align="left" data-role="button"  data-theme="a" data-inline="true">Grabar</a>';
+    html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea">'+getObservation(data.idalumno)+'</textarea>';
+    //html += '   <textarea cols="40" rows="8" name="textarea-'+data.idalumno+'" id="textarea"></textarea>';
+    html += '   <a href="#" onclick="updateStateStudent('+data.idalumno+',6,'+data.id+')" id="btn-save-'+data.idalumno+'"  name="btn-save-'+data.idalumno+'" align="left" data-role="button"  data-theme="a" data-inline="true">Grabar</a>';
 
     html += '</fieldset>';
     
@@ -639,9 +639,9 @@ function getObservation(id){
 
 
 
-function updateStateStudent(idstudent,idstate){
+function updateStateStudent(idstudent,idstate,idparada){
 
-    if ($('#ckbox-'+idstate+'-'+idstudent).prop("checked")||(idstate=='5')){
+    if ($('#ckbox-'+idstate+'-'+idstudent).prop("checked")||(idstate=='5') ||(idstate=='6')){
         if(idstate=='5'){
             idnovedad   = $('#select-novedades-'+idstudent).val(); 
             desnovedad  = $('#select-novedades-'+idstudent+' option:selected').text();  
@@ -651,7 +651,8 @@ function updateStateStudent(idstudent,idstate){
         }
         
         if(idstate=='6'){
-            observation = $('#textarea-'+idstudent).text();  
+            observation = $('input[name="textarea-'+idstudent+'"]').val();  
+            console.log('entrooooo....'+observation);
         }else{
            observation = '';
         }
@@ -668,7 +669,8 @@ function updateStateStudent(idstudent,idstate){
                 longitud    : lng,
                 insert      : 0,
                 fecha       : getDateTime(),
-                offline     : 0
+                offline     : 0,
+                idparada    : idparada
             }
 
         $.ajax({
