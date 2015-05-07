@@ -535,7 +535,7 @@ function getWayStop(){
 
 function PaintWayStop(data){
     var html;
-    //estado : 1 en casa, 2 rumbo al colegio, 3 en el colegio, 4 rumbo a casa
+    //estado : 1 percha sin novedad, 2 visita, 3 Sugerido de productos, 4 Pedido grabado, 5 novedad
     if ((data.estado==2)||(data.estado==4))
         html  = '<fieldset name="fieldset-'+data.idalumno+'" id="fieldset-'+data.idalumno+'" data-role="collapsible" data-theme="e" data-content-theme="d">';
     else
@@ -652,7 +652,6 @@ function updateStateStudent(idstudent,idstate,idparada){
         
         if(idstate=='6'){
             observation = $('input[name="textarea-'+idstudent+'"]').val();  
-            console.log('entrooooo....'+observation);
         }else{
            observation = '';
         }
