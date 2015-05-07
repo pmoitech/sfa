@@ -367,10 +367,10 @@ $config['copyright'] = 'by Geocommerce Cia. Ltda. Quito, Ecuador';
 $config['app_link'] = 'http://www.geocommerce.com.ec'; 
 
 $config['max_verification_attemps'] = 10;
-$config['verification_interval'] = 20000; //In milliseconds
+$config['verification_interval'] = 8000; //In milliseconds
  
-$config['agent_verification_interval'] = 20000; //In milliseconds
-$config['agent_updatelocation_interval'] = 20000; //In milliseconds
+$config['agent_verification_interval'] = 8000; //In milliseconds
+$config['agent_updatelocation_interval'] = 8000; //In milliseconds
 $config['distance_call'] = 2; //In kilometros
 $config['distance_call_sos'] = 5; //In kilometros
 
