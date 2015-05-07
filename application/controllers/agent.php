@@ -242,15 +242,16 @@ function verify_service_status(){
 		$this->load->model('seguimiento');
 		
 		$des_est = '';
+		//estado : 1 percha sin novedad, 2 visita, 3 Sugerido de productos, 4 Pedido grabado, 5 novedad
 		switch ($estado) {
 		    case '1':
-		        $des_est = 'Visita';break;
-		    case '2':
-		        $des_est = 'Sugerido de productos';break;
-		    case '3':
-		        $des_est = 'Pedido grabado';break;
-		    case '4':
 		        $des_est = 'Percha sin novedad';break;
+		    case '2':
+		        $des_est = 'Visita';break;
+		    case '3':
+		        $des_est = 'Sugerido de productos';break;
+		    case '4':
+		        $des_est = 'Pedido grabado';break;
 		    case '5':
 		        $des_est = 'Novedad: '.$desnovedad;break;
 		    case '6':{
